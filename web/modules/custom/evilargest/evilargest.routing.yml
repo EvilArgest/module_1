@@ -1,0 +1,7 @@
+cats:
+  path: 'evilargest/cats'
+  defaults:
+    _controller: '\Drupal\evilargest\Controller\CatsController::content'
+    _title: 'Cats competition'
+  requirements:
+    _permission: 'access content'
