@@ -1,0 +1,25 @@
+#navbar .page-header{
+  border: none;
+}
+#navbar{
+  display: flex;
+  justify-content: center;
+  border: none;
+  background-color: #6495ed;
+}
+.region-navigation{
+  display: flex;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+.region-navigation .navbar-brand{
+  display: none;
+}
+.logo img{
+  width: 100px;
+}
+.region-navigation h1{
+  padding: 0;
+  margin: auto 0;
+  color: white;
+}
