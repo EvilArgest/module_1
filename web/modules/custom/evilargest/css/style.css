@@ -23,3 +23,36 @@
   margin: auto 0;
   color: white;
 }
+.cats-form{
+  max-width: 850px;
+  margin: 0 auto;
+}
+.cats-form .control-label{
+  width: 100%;
+  text-align: center;
+  color: #6487ed;
+  font-size: 30px;
+}
+#edit-adding-cat{
+  margin: 0 auto;
+  max-width: 580px;
+  font-size: 18px;
+  height: 55px;
+}
+#edit-submit{
+  display: block;
+  margin: 0 auto;
+  background-color: #6487ed;
+  border-color: #6495ed;
+  width: 126px;
+  height: 49px;
+  font-size: 20px;
+}
+#edit-adding-cat{
+  border-color: #6487ed;
+}
+.alert-success{
+  text-align: center;
+  font-size: 20px;
+}
+

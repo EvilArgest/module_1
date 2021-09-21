@@ -1,5 +1,5 @@
 cats:
-  path: 'evilargest/cats'
+  path: '/evilargest/cats'
   defaults:
     _controller: '\Drupal\evilargest\Controller\CatsController::content'
     _title: 'Hello! You can add here a photo of your cat.'

@@ -8,6 +8,7 @@ function evilargest_theme($existing, $type, $theme, $path)
   return [
     "cats-theme"=>[
       "variables"=>[
+        'form' => NULL,
       ]
     ]
   ];
