@@ -6,19 +6,21 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * From Class
+ * Form for adding cats.
  */
+class CatsForm extends FormBase {
 
-class CatsForm extends FormBase
-{
-
-  public function getFormId()
-  {
+  /**
+   * {@inheritdoc}
+   */
+  public function getFormId(): string {
     return 'cats_form';
   }
 
-  public function buildForm(array $form, FormStateInterface $form_state)
-  {
+  /**
+   * {@inheritdoc}
+   */
+  public function buildForm(array $form, FormStateInterface $form_state): array {
     $form['adding_cat'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Your cat’s name:'),
@@ -32,8 +34,23 @@ class CatsForm extends FormBase
     return $form;
   }
 
-  public function submitForm(array &$form, FormStateInterface $form_state)
-  {
+  /**
+   * {@inheritdoc}
+   */
+  public function submitForm(array &$form, FormStateInterface $form_state) {
     \Drupal::messenger()->addStatus(t('Hurray! You added your cat!'));
   }
+
+  /**
+   * Form validation.
+   */
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    if ((mb_strlen($form_state->getValue('adding_cat')) < 2)) {
+      $form_state->setErrorByName('adding_cat', $this->t('Your name is less than 2 symbols.'));
+    }
+    if ((mb_strlen($form_state->getValue('adding_cat')) > 32)) {
+      $form_state->setErrorByName('adding_cat', $this->t('Your name is longer than 32 symbols.'));
+    }
+  }
+
 }

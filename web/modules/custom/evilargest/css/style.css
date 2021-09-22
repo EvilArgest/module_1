@@ -1,45 +1,45 @@
-#navbar .page-header{
+#navbar .page-header {
   border: none;
 }
-#navbar{
+#navbar {
   display: flex;
   justify-content: center;
   border: none;
   background-color: #6495ed;
 }
-.region-navigation{
+.region-navigation {
   display: flex;
   padding: 0 10px;
   margin: 0 auto;
 }
-.region-navigation .navbar-brand{
+.region-navigation .navbar-brand {
   display: none;
 }
-.logo img{
+.logo img {
   width: 100px;
 }
-.region-navigation h1{
+.region-navigation h1 {
   padding: 0;
   margin: auto 0;
   color: white;
 }
-.cats-form{
+.cats-form {
   max-width: 850px;
   margin: 0 auto;
 }
-.cats-form .control-label{
+.cats-form .control-label {
   width: 100%;
   text-align: center;
   color: #6487ed;
   font-size: 30px;
 }
-#edit-adding-cat{
+#edit-adding-cat {
   margin: 0 auto;
   max-width: 580px;
   font-size: 18px;
   height: 55px;
 }
-#edit-submit{
+#edit-submit {
   display: block;
   margin: 0 auto;
   background-color: #6487ed;
@@ -48,11 +48,14 @@
   height: 49px;
   font-size: 20px;
 }
-#edit-adding-cat{
+#edit-adding-cat {
   border-color: #6487ed;
 }
-.alert-success{
+.messages__wrapper .alert-success {
   text-align: center;
   font-size: 20px;
 }
-
+.messages__wrapper .alert-danger {
+  text-align: center;
+  font-size: 20px;
+}
