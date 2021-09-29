@@ -5,7 +5,6 @@ namespace Drupal\evilargest\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\Ajax\AjaxResponse;
 
 /**
  * Form for adding cats.
@@ -38,6 +37,11 @@ class CatsForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Your cat’s name:'),
       '#placeholder' => $this->t('The name must be in range from 2 to 32 symbols...'),
+    ];
+    $form['adding_email'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Your email:'),
+      '#placeholder' => $this->t('Only English letters, - and _'),
     ];
     $form['submit'] = [
       '#type' => 'submit',
