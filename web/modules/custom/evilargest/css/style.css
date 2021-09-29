@@ -33,13 +33,14 @@
   color: #6487ed;
   font-size: 30px;
 }
-#edit-adding-cat {
+.cats-form .form-text {
   margin: 0 auto;
   max-width: 580px;
   font-size: 18px;
   height: 55px;
+  border-color: #6487ed;
 }
-#edit-submit {
+.cats-form .form-submit {
   display: block;
   margin: 0 auto;
   background-color: #6487ed;
@@ -47,9 +48,6 @@
   width: 126px;
   height: 49px;
   font-size: 20px;
-}
-#edit-adding-cat {
-  border-color: #6487ed;
 }
 .messages__wrapper .alert-success {
   text-align: center;
