@@ -40,6 +40,13 @@
   height: 55px;
   border-color: #6487ed;
 }
+.cats-form .form-email {
+  margin: 0 auto;
+  max-width: 580px;
+  font-size: 18px;
+  height: 55px;
+  border-color: #6487ed;
+}
 .cats-form .form-submit {
   display: block;
   margin: 0 auto;
@@ -56,4 +63,12 @@
 .messages__wrapper .alert-danger {
   text-align: center;
   font-size: 20px;
+}
+#email_error {
+  text-align: center;
+  padding-bottom: 11px;
+  color: red;
+}
+.form-item-adding-cat {
+  padding-bottom: 11px;
 }
