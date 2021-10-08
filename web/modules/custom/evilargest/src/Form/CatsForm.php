@@ -35,6 +35,7 @@ class CatsForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state): array {
     $form['#prefix'] = '<div id="wrapper">';
     $form['#suffix'] = '</div>';
+    $form['#attached'] = ['library' => ['evilargest/evilagest_library']];
     $form['adding_cat'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Your cat’s name:'),
@@ -60,7 +61,17 @@ class CatsForm extends FormBase {
       '#type' => 'markup',
       '#markup' => '<div id ="email_error">&nbsp;</div>',
     ];
-    $form['#attached'] = ['library' => ['evilargest/evilagest_library']];
+    $form['cat_photo'] = [
+      '#title' => t('Your cat’s image:'),
+      '#description' => $this->t('Cat photo'),
+      '#type' => 'managed_file',
+      '#size' => 40,
+      '#required' => TRUE,
+      '#upload_validators' => [
+        'file_validate_extensions' => ['png jpg jpeg'],
+        'file_validate_size' => [2097152],
+      ],
+    ];
     $form['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Add cat'),

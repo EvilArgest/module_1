@@ -24,7 +24,7 @@
   color: white;
 }
 .cats-form {
-  max-width: 850px;
+  max-width: 580px;
   margin: 0 auto;
 }
 .cats-form .control-label {
@@ -71,4 +71,18 @@
 }
 .form-item-adding-cat {
   padding-bottom: 11px;
+}
+.js-form-file.form-file.form-control {
+  width: 220px;
+  margin: 0 auto;
+}
+.file-upload-js-error {
+  color: red;
+  max-width: 580px;
+  text-align: center;
+}
+.cats-form .btn-danger {
+  width: 89px;
+  height: 34px;
+  font-size: 12px;
 }
