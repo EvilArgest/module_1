@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Containts evilargest_schema.
+ */
+
+/**
+ * Creating a table for the module.
+ */
+function evilargest_schema(): array {
+  $schema['evilargest'] = [
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'name' => [
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+      ],
+      'email' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'image' => [
+        'type' => 'int',
+        'length' => 32,
+        'not null' => TRUE,
+      ],
+      'date' => [
+        'type' => 'varchar',
+        'length' => 20,
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => [
+      'id',
+    ],
+  ];
+
+  return $schema;
+
+}

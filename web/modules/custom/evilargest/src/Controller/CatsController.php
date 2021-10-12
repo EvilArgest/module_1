@@ -2,6 +2,8 @@
 
 namespace Drupal\evilargest\Controller;
 
+use Drupal\evilargest\Form\CatsForm;
+
 /**
  * Cats controller.
  */
@@ -10,8 +12,8 @@ class CatsController {
   /**
    * Getting form from Catsform.
    */
-  public function content() {
-    $form = \Drupal::formBuilder()->getForm('Drupal\evilargest\Form\CatsForm');
+  public function content(): array {
+    $form = \Drupal::formBuilder()->getForm(CatsForm::class);
     return [
       '#theme' => 'cats-theme',
       '#form' => $form,
