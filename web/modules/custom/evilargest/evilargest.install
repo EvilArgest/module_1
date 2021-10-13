@@ -32,7 +32,7 @@ function evilargest_schema(): array {
         'not null' => TRUE,
       ],
       'date' => [
-        'type' => 'varchar',
+        'type' => 'int',
         'length' => 20,
         'not null' => TRUE,
       ],
