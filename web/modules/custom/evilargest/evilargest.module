@@ -13,6 +13,15 @@ function evilargest_theme($existing, $type, $theme, $path) {
     "cats-theme" => [
       "variables" => [
         'form' => NULL,
+        'cats' => NULL,
+      ],
+    ],
+    'cat-table-block' => [
+      'variables' => [
+        'name' => NULL,
+        'email' => NULL,
+        'image' => NULL,
+        'date' => NULL,
       ],
     ],
   ];

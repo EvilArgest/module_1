@@ -5,6 +5,7 @@ namespace Drupal\evilargest\Form;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\file\Entity\File;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Ajax\HtmlCommand;
 
@@ -19,8 +20,16 @@ class CatsForm extends FormBase {
   public static function create(ContainerInterface $container): CatsForm {
     $instance = parent::create($container);
     $instance->messenger = $container->get('messenger');
+    $instance->database = $container->get('database');
     return $instance;
   }
+
+  /**
+   * Drupal\Core\Database defenition.
+   *
+   * @var \Drupal\Core\Database\Connection
+   */
+  public $database;
 
   /**
    * {@inheritdoc}
@@ -66,7 +75,11 @@ class CatsForm extends FormBase {
       '#description' => $this->t('Cat photo'),
       '#type' => 'managed_file',
       '#size' => 40,
+      '#attributes' => [
+        'class' => ['.clear_class'],
+      ],
       '#required' => TRUE,
+      '#upload_location' => 'public://img',
       '#upload_validators' => [
         'file_validate_extensions' => ['png jpg jpeg'],
         'file_validate_size' => [2097152],
@@ -117,8 +130,26 @@ class CatsForm extends FormBase {
 
   /**
    * {@inheritdoc}
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   * @throws \Exception
    */
   public function submitForm(array &$form, FormStateInterface $form_state): void {
+    $file_data = $form_state->getValue(['cat_photo']);
+    $file = File::load($file_data[0]);
+    if ($file !== NULL) {
+      $file->setPermanent();
+      $file->save();
+      $this->database
+        ->insert('evilargest')
+        ->fields([
+          'name' => $form_state->getValue(['adding_cat']),
+          'email' => $form_state->getValue('email'),
+          'image' => $form_state->getValue(['cat_photo'])[0],
+          'date' => time(),
+        ])
+        ->execute();
+    }
     $this->messenger->addStatus($this->t('Hurray! You added your cat!'));
   }
 
