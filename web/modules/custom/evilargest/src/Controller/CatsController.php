@@ -61,7 +61,7 @@ class CatsController extends ControllerBase {
     foreach ($table_result as $cat) {
       $cat->image = [
         '#theme' => 'image_style',
-        '#style_name' => 'medium',
+        '#style_name' => 'wide',
         '#uri' => File::load($cat->image)->getFileUri(),
         '#attributes' => [
           'class' => 'cat_table_image',

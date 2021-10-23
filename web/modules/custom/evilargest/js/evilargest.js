@@ -1,3 +1,6 @@
+/*
+  Making email checking delay slower.
+ */
 (function ($, Drupal, drupalSettings) {
   'use strict';
   Drupal.behaviors.evilargest_finishedinput = {
@@ -12,6 +15,13 @@
             trigid.triggerHandler('finishedinput');
           }, delay);
         }
+      });
+      /*
+          Picture overlay.
+       */
+      $(".image_wrapper").once().on('click', function (event) {
+        $(this).toggleClass("overlay");
+        $(this).children().toggleClass("overlay_img");
       });
     }
   };
