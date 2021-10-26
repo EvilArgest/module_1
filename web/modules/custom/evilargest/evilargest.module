@@ -22,6 +22,7 @@ function evilargest_theme($existing, $type, $theme, $path) {
         'email' => NULL,
         'image' => NULL,
         'date' => NULL,
+        'id' => NULL,
       ],
     ],
   ];

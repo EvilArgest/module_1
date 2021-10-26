@@ -74,6 +74,7 @@ class CatsController extends ControllerBase {
         '#email' => $cat->email,
         '#image' => $cat->image,
         '#date' => date('d-m-Y H:i:s', $cat->date),
+        '#id' => $cat->id,
       ];
       $cats[] = $render_cat;
     }

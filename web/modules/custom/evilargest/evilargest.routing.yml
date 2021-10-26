@@ -5,3 +5,11 @@ cats:
     _title: 'Hello! You can add here a photo of your cat.'
   requirements:
     _permission: 'access content'
+
+cats.deleteCat:
+  path: '/evilargest/deleteCat/{id}'
+  defaults:
+    _form: '\Drupal\evilargest\Form\DeleteCat'
+    _title: 'Are u sure u wanna delete this cat?'
+  requirements:
+    _permission: 'administer site configuration'

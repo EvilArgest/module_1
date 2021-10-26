@@ -27,7 +27,7 @@ class CatsForm extends FormBase {
   /**
    * Drupal\Core\Database defenition.
    *
-   * @var \Drupal\Core\Database\Connection
+   * @var \Drupal\Core\Database\Connection|object|null
    */
   public $database;
 
@@ -57,12 +57,11 @@ class CatsForm extends FormBase {
       '#placeholder' => $this->t('Only English letters, - and _'),
       '#required' => TRUE,
       '#ajax' => [
-        'disable-refocus' => TRUE,
         'callback' => '::validateEmailAjax',
         'event' => 'finishedinput',
         'progress' => [
           'type' => 'none',
-          'message' => t('Verifying email..'),
+          'message' => $this->t('Verifying email..'),
         ],
       ],
     ];
@@ -71,7 +70,7 @@ class CatsForm extends FormBase {
       '#markup' => '<div id ="email_error">&nbsp;</div>',
     ];
     $form['cat_photo'] = [
-      '#title' => t('Your cat’s image:'),
+      '#title' => $this->t('Your cat’s image:'),
       '#description' => $this->t('Cat photo'),
       '#type' => 'managed_file',
       '#size' => 40,
