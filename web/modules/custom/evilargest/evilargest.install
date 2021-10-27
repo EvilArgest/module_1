@@ -28,7 +28,7 @@ function evilargest_schema(): array {
       ],
       'image' => [
         'type' => 'int',
-        'length' => 32,
+        //'length' => 32,
         'not null' => TRUE,
       ],
       'date' => [

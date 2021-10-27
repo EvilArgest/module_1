@@ -5,7 +5,7 @@
     <p class="cat_table_date">{{ date }}</p>
     {% if user.hasPermission('administer nodes') %}
       <div class="cat_table_buttons">
-        <div class="cat_button cat_table_edit"><a href="#" class="use-ajax cat_table_link" data-dialog-type="modal">Edit</a></div>
+        <div class="cat_button cat_table_edit"><a href='/evilargest/editCat/{{ id }}/' class="use-ajax cat_table_link" data-dialog-type="modal">Edit</a></div>
         <div class="cat_button cat_table_delete"><a href='/evilargest/deleteCat/{{ id }}/' class="use-ajax cat_table_link" data-dialog-type="modal">Delete</a></div>
       </div>
     {% endif %}

@@ -13,3 +13,11 @@ cats.deleteCat:
     _title: 'Are u sure u wanna delete this cat?'
   requirements:
     _permission: 'administer site configuration'
+
+cats.editCat:
+  path: '/evilargest/editCat/{id}'
+  defaults:
+    _form: '\Drupal\evilargest\Form\EditCat'
+    _title: 'Save your editing?'
+  requirements:
+    _permission: 'administer site configuration'
