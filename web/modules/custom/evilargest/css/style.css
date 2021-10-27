@@ -134,7 +134,9 @@
 .cat_table_name {
   color: #6487ed;
   font-size: 30px;
+  word-wrap: break-word;
   font-weight: bold;
+  max-width: 320px;
 }
 .cat_table_email {
   color: #6487ed;
@@ -188,4 +190,31 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset .button:nth-child(eve
 }
 body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset .button:nth-child(odd) {
   margin-bottom: 9px;
+}
+#drupal-modal .form-managed-file {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+#drupal-modal button[id*="edit-cat-photo-remove-button"] {
+  width: 92px;
+  margin: 0 auto;
+}
+.edit-cat {
+  display: flex;
+  flex-direction: column;
+}
+#drupal-modal button[id*="edit-submit-"] {
+  height: 45px;
+  width: 150px;
+  margin: 10px auto;
+}
+#drupal-modal #edit_email_error {
+  color: red;
+  margin-top: -10px;
+  text-align: center;
+  margin-bottom: 7px;
+}
+.cat_table_edit .cat_table_link {
+  padding: 11px 16px;
 }

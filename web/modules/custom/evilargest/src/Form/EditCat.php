@@ -75,6 +75,7 @@ class EditCat extends FormBase {
       '#ajax' => [
         'callback' => '::validateEmailAjax',
         'event' => 'finishedinput',
+        'disable-refocus' => TRUE,
         'progress' => [
           'type' => 'none',
           'message' => $this->t('Verifying email..'),
@@ -103,7 +104,7 @@ class EditCat extends FormBase {
     ];
     $form['submit'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Edit cat'),
+      '#value' => $this->t('Save'),
       '#button_type' => 'submit',
       '#ajax' => [
         'callback' => '::setMessage',
@@ -166,7 +167,7 @@ class EditCat extends FormBase {
         ])
         ->execute();
     }
-    $this->messenger->addStatus($this->t('Hurray! You added your cat!'));
+    $this->messenger->addStatus($this->t('Hurray! You edited your cat!'));
     $form_state->setRedirect('cats');
   }
 
