@@ -8,6 +8,8 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\file\Entity\File;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Ajax\HtmlCommand;
+use Drupal\Core\Url;
+use Drupal\Core\Ajax\RedirectCommand;
 
 /**
  * Form for adding cats.
@@ -29,7 +31,7 @@ class EditCat extends FormBase {
    *
    * @var null
    */
-  private $id;
+  public $id;
 
   /**
    * Drupal\Core\Database defenition.
@@ -54,7 +56,7 @@ class EditCat extends FormBase {
       ->condition('e.id', $id, '=')
       ->fields('e', ['id', 'name', 'email', 'image'])
       ->execute()->fetchAll();
-    $form['#prefix'] = '<div id="wrapper">';
+    $form['#prefix'] = '<div id="edit_wrapper">';
     $form['#suffix'] = '</div>';
     $form['#attached'] = ['library' => ['evilargest/evilagest_library']];
     $form['adding_cat'] = [
@@ -81,7 +83,7 @@ class EditCat extends FormBase {
     ];
     $form['message'] = [
       '#type' => 'markup',
-      '#markup' => '<div id ="email_error">&nbsp;</div>',
+      '#markup' => '<div id ="edit_email_error">&nbsp;</div>',
     ];
     $form['cat_photo'] = [
       '#title' => $this->t('Your cat’s image:'),
@@ -105,7 +107,7 @@ class EditCat extends FormBase {
       '#button_type' => 'submit',
       '#ajax' => [
         'callback' => '::setMessage',
-        'wrapper' => 'wrapper',
+        'wrapper' => 'edit_wrapper',
         'progress' => [
           'type' => 'none',
         ],
@@ -126,7 +128,7 @@ class EditCat extends FormBase {
       if (!preg_match($regularexp, $line[$i])) {
         $response->addCommand(
           new HtmlCommand(
-            '#email_error',
+            '#edit_email_error',
             $this->t('You can use only _ - and English letters')
           )
         );
@@ -134,7 +136,7 @@ class EditCat extends FormBase {
       }
       $response->addCommand(
         new HtmlCommand(
-          '#email_error',
+          '#edit_email_error',
           '&nbsp;',
         )
       );
@@ -160,11 +162,12 @@ class EditCat extends FormBase {
         ->fields([
           'name' => $form_state->getValue(['adding_cat']),
           'email' => $form_state->getValue('email'),
-          'image' => $file_data[0],
+          'image' => $form_state->getValue('cat_photo')[0],
         ])
         ->execute();
     }
     $this->messenger->addStatus($this->t('Hurray! You added your cat!'));
+    $form_state->setRedirect('cats');
   }
 
   /**
@@ -195,8 +198,12 @@ class EditCat extends FormBase {
   /**
    * Submit Ajax.
    */
-  public function setMessage(array &$form, FormStateInterface $form_state) : array {
- //   return $form;
+  public function setMessage(array &$form, FormStateInterface $form_state) : AjaxResponse {
+    $response = new AjaxResponse();
+    $url = Url::fromRoute('cats');
+    $command = new RedirectCommand($url->toString());
+    $response->addCommand($command);
+    return $response;
   }
 
 }
