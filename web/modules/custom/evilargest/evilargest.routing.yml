@@ -21,3 +21,27 @@ cats.editCat:
     _title: 'Save your editing?'
   requirements:
     _permission: 'administer site configuration'
+
+cats.admin:
+  path: '/admin/structure/cats'
+  defaults:
+    _form: '\Drupal\evilargest\Form\CatsFormForAdmin'
+    _title: 'Cats competition.'
+  requirements:
+    _permission: 'administer site configuration'
+
+cats.deleteCat.admin:
+  path: '/evilargest/admin/deleteCat/{id}'
+  defaults:
+    _form: '\Drupal\evilargest\Form\DeleteCatAdmin'
+    _title: 'Delete'
+  requirements:
+    _permission: 'administer site configuration'
+
+cats.editCat.admin:
+  path: '/evilargest/admin/editCat/{id}'
+  defaults:
+    _form: '\Drupal\evilargest\Form\EditCatAdmin'
+    _title: 'Edit'
+  requirements:
+    _permission: 'administer site configuration'

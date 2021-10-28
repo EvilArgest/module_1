@@ -1,0 +1,6 @@
+evilargest.admin:
+  title: 'Cats list'
+  route_name: cats.admin
+  description: 'Submitted cats'
+  parent: system.admin_structure
+  weight: 100
