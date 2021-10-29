@@ -58,7 +58,7 @@ class EditCat extends FormBase {
       ->execute()->fetchAll();
     $form['#prefix'] = '<div id="edit_wrapper">';
     $form['#suffix'] = '</div>';
-    $form['#attached'] = ['library' => ['evilargest/evilagest_library']];
+    $form['#attached'] = ['library' => ['evilargest/evilargest_library']];
     $form['adding_cat'] = [
       '#type' => 'textfield',
       '#default_value' => $data[0]->name,

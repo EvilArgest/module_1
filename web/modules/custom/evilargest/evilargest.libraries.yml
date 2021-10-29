@@ -4,3 +4,7 @@ evilargest_library:
       css/style.css: {}
   js:
     js/evilargest.js: {}
+
+emailjs:
+  js:
+    js/evilargest.js: { }

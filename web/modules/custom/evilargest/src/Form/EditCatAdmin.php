@@ -44,7 +44,7 @@ class EditCatAdmin extends FormBase {
    * {@inheritdoc}
    */
   public function getFormId(): string {
-    return 'edit_cat';
+    return 'edit_catAdmin';
   }
 
   /**
@@ -58,7 +58,7 @@ class EditCatAdmin extends FormBase {
       ->execute()->fetchAll();
     $form['#prefix'] = '<div id="edit_wrapper">';
     $form['#suffix'] = '</div>';
-    $form['#attached'] = ['library' => ['evilargest/evilagest_library']];
+    $form['#attached'] = ['library' => ['evilargest/emailjs']];
     $form['adding_cat'] = [
       '#type' => 'textfield',
       '#default_value' => $data[0]->name,
