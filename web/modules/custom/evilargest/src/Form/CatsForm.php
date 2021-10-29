@@ -3,8 +3,10 @@
 namespace Drupal\evilargest\Form;
 
 use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\RedirectCommand;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 use Drupal\file\Entity\File;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Ajax\HtmlCommand;
@@ -180,8 +182,12 @@ class CatsForm extends FormBase {
   /**
    * Submit Ajax.
    */
-  public function setMessage(array &$form, FormStateInterface $form_state) : array {
-    return $form;
+  public function setMessage(array &$form, FormStateInterface $form_state) : AjaxResponse {
+    $response = new AjaxResponse();
+    $url = Url::fromRoute('cats');
+    $command = new RedirectCommand($url->toString());
+    $response->addCommand($command);
+    return $response;
   }
 
 }

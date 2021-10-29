@@ -86,6 +86,13 @@
   height: 34px;
   font-size: 12px;
 }
+body .cat_table_image.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  height: 100%;
+}
 .table_wrapper {
   width: 1200px;
   margin: 0 auto;
@@ -105,8 +112,10 @@
 .cat_table_image {
   margin: 0 auto;
   cursor: pointer;
-  min-height: 230px;
-  min-width: 300px;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  background-color: lightgray;
 }
 .image_wrapper {
   width: 300px;
@@ -117,8 +126,8 @@
 .overlay {
   position: fixed;
   display: block;
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
   top: 0;
   left: 0;
   right: 0;
@@ -127,7 +136,9 @@
   z-index: 2;
   cursor: pointer;
 }
-.overlay_img {
+body .image_wrapper.overlay .overlay_img {
+  width: auto;
+  height: auto;
   top: 18%;
   position: relative;
 }
